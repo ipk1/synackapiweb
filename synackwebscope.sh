@@ -7,7 +7,7 @@ curl 'https://platform.synack.com/api/targets/registered_summary'   -H 'Connecti
 paste id.txt org.txt | while read if of
      do
 
-curl 'https://platform.synack.com/api/asset/v1/organizations/'$of'/owners/listings/'$if'/webapps'   -H 'authority: platform.synack.com'   -H 'authorization: Bearer <<token>>'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'   -H 'dnt: 1'   -H 'accept: */*'   -H 'sec-fetch-site: same-origin'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-dest: empty'   -H 'referer: https://platform.synack.com/targets/398mb7b0p5/scope'   --compressed  | jq -r 'to_entries[] | " \(.value | .value)"' >> synackscope.txt
+curl 'https://platform.synack.com/api/asset/v1/organizations/'$of'/owners/listings/'$if'/webapps'   -H 'authority: platform.synack.com'   -H 'authorization: Bearer <<token>>'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'   -H 'dnt: 1'   -H 'accept: */*'   -H 'sec-fetch-site: same-origin'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-dest: empty'   -H 'referer: https://platform.synack.com/targets/398mb7b0p5/scope'   --compressed  | jq -r 'to_entries[] | " \(.value | .value)"' | sort -u >> synackscope.txt
 
 done > AllScope.txt
 
