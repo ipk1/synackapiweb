@@ -10,3 +10,5 @@ if you are intereseted you can tweak this script a bit to get credentials for th
 Please feel free to modify and improve this and kindly share with the community 
 
 your scope will be visible in Allscope.txt and synackscope.txt
+
+Ideas from @SriTharun3 :)
