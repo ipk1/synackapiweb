@@ -1,5 +1,5 @@
 # synackwebapi
-This is the result of my frsutration that I was unable to automate my recon and content discovery.
+This is the result of my frustration that I was unable to automate my recon and content discovery.
 this bash script is to get all the web app scope in synack, you need to be connected to the VPN.
 
 download the bash script and replace your token in place of <<token>>( credit @ozguralp)
