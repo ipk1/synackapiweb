@@ -12,3 +12,4 @@ Please feel free to modify and improve this and kindly share with the community
 your scope will be visible in Allscope.txt and synackscope.txt
 
 Ideas from @SriTharun3 :)
+Thanks Aslarchergore for pointing out out-of-scope urls
