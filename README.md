@@ -13,3 +13,15 @@ your scope will be visible in Allscope.txt and synackscope.txt
 
 Ideas from @SriTharun3 :)
 Thanks Aslarchergore for pointing out out-of-scope urls
+
+
+the target_&_scope.sh will download the scope as follows
+
+"ladybird"
+https://url.com
+url1.com
+.
+.
+"firefly"
+http://fireurl.com
+
