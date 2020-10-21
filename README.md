@@ -15,7 +15,7 @@ Ideas from @SriTharun3 :)
 Thanks Aslarchergore for pointing out out-of-scope urls
 
 
-the target_&_scope.sh will download the scope as follows
+##the target_&_scope.sh will download the scope as follows
 
 "ladybird"
 https://url.com
