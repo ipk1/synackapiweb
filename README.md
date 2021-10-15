@@ -17,13 +17,19 @@ Thanks Aslarchergore for pointing out out-of-scope urls
 ##the target_&_scope.sh will download the scope as follows
 
 "ladybird"
+  
 https://url.com
-url1.com
+
+  url1.com
 .
+  
 .
+  
 "CREDENTIALS"
+
 USERNAME:124
+  
 PASSWORD:JHGGH%&^&*
 
 USAGE:
-bash scope_creds.sh <<token>>
+**bash scope_creds.sh <<YourSynackAPI::key>>**
