@@ -1,0 +1,23 @@
+rm *.txt
+curl 'https://platform.synack.com/api/targets/registered_summary'   -H 'Connection: keep-alive'   -H 'Authorization: Bearer '$1''   --compressed | jq -r 'to_entries[] | " \(.value | .id)"' | tee id.txt
+curl 'https://platform.synack.com/api/targets/registered_summary'   -H 'Connection: keep-alive'   -H 'Authorization: Bearer '$1''   --compressed | jq -r 'to_entries[] | " \(.value | .organization_id)"' | tee org.txt
+
+paste id.txt org.txt | while read if of
+     do
+      curl 'https://platform.synack.com/api/targets/'$if''   -H 'authority: platform.synack.com'   -H 'authorization: Bearer '$1''  --compressed | jq '.codename' >> Allscopenew.txt
+
+curl 'https://platform.synack.com/api/asset/v2/assets?listingUid%5B%5D='$if'&organizationUid%5B%5D='$of'&assetType%5B%5D=webapp&active=true&sort=location&sortDir=asc&page=1'   -H 'authority: platform.synack.com'   -H 'authorization: Bearer '$1''   --compressed  | jq -r '.[] | select(.status=="valid") | .webApplication.url' | sort -u >> Allscopenew.txt
+done
+
+sudo cat Allscopenew.txt | grep -v '"' >> scopeforkid.txt
+
+
+paste id.txt org.txt | while read if of
+     do
+      curl 'https://platform.synack.com/api/targets/'$if''   -H 'authority: platform.synack.com'   -H 'authorization: Bearer '$1''  --compressed | jq '.codename' >> rules.txt
+
+curl 'https://platform.synack.com/api/asset/v2/assets?listingUid%5B%5D='$if'&organizationUid%5B%5D='$of'&assetType%5B%5D=webapp&active=true&sort=location&sortDir=asc&page=1'   -H 'authority: platform.synack.com'   -H 'authorization: Bearer '$1''   --compressed  | jq -r '.[] | select(.status=="valid") | .scopeRules[].rule' | sort -u >> rules.txt
+
+done
+
+sudo cat rules.txt  | grep -v '.www' | cut -d / -f 1 | cut -d : -f 1 >> reconinput.txt
